@@ -17,7 +17,7 @@
                 <h4 class="widgettitle">Hay {{ $sellers->total() }} registros</h4>
                 </p>
                 @include('seller.partials.table')
-                {{ $sellers->render() }}
+                {!! $sellers->render() !!}
             </div><!--contentinner-->
         </div><!--contentinner-->
     </div><!--maincontent-->
