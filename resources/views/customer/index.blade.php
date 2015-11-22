@@ -14,10 +14,9 @@
                     <a class="btn btn-info btn-rounded" href="{{ url("customers/exportar-excel?name=$name&contact=$contact") }}" role="button">
                         <i class="icon-download icon-white" role="button"></i> Exportar a Excel</a>
                 </p>
-                @if(Session::has('message'))
-                    <p class="alert alert-success">{{ Session::get('message') }}</p>
-                @endif
+
                 @include('customer.partials.search')
+
                 @if(Session::has('message'))
                     <p class="alert alert-success">{{ Session::get('message') }}</p>
                 @endif
