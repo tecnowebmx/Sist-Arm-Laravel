@@ -2,12 +2,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistema ARM | Home</title>
+    <title>Sistema ARM | @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('prettify/prettify.css') }}" />
 
-    @yield('css');
+    @yield('css')
 
     <!--[if lte IE 8]>
     <script language="javascript" type="text/javascript" src="{{ asset('js/excanvas.min.js') }}"></script><![endif]-->
