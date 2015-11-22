@@ -2,6 +2,8 @@
 
 namespace ARM\Http\Controllers;
 
+use ARM\Http\Requests\CreateSellerRequest;
+use ARM\Http\Requests\EditSellerRequest;
 use ARM\Seller;
 use Illuminate\Http\Request;
 use ARM\Http\Requests;
@@ -46,7 +48,7 @@ class SellerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Redirector $redirect)
+    public function store(CreateSellerRequest $request, Redirector $redirect)
     {
         $seller = new Seller($request->all());
         $seller->status = 1;
@@ -87,7 +89,7 @@ class SellerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Redirector $redirect)
+    public function update(EditSellerRequest $request, $id, Redirector $redirect)
     {
         /*$seller = Seller::findOrFail($id);
 
