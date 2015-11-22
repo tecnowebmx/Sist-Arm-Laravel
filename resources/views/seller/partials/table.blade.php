@@ -13,7 +13,7 @@
             <td>{{ $seller->key }}</td>
             <td>{{ $seller->phone }}</td>
             <td>{{ $seller->email }}</td>
-            <td>{{ $seller->fecha_ingreso }}</td>
+            <td>{{ date('d-m-Y', strtotime($seller->fecha_ingreso)) }}</td>
             <td style="font-weight: bold;">
                 <a href=" {{ route('sellers.edit', $seller) }}">Editar</a>
                 <a class="btn-delete" href="#!">Eliminar</a>
