@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('title')Clientes
+@endsection
+
 @section('content')
     <div class="pagetitle">
         <h1>Clientes</h1> <span></span>
