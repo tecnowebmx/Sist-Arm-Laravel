@@ -13,7 +13,7 @@
                 <p>
                     <a class="btn btn-primary" href="{{ route('sellers.create') }}" role="button">
                         <i class="icon-plus-sign icon-white" role="button"></i> Crear Vendedor</a>
-                    <a id="btnSearch" class="btn btn-rounded" href="" role="button">
+                    <a id="btn-search" class="btn btn-rounded" href="#!" role="button">
                         <i class="iconsweets-magnifying" role="button"></i>Buscar...</a>
                 </p>
                 @include('prospect.partials.search')
@@ -40,24 +40,22 @@
     <script>
         jQuery(document).ready(function(){
 
-            jQuery(document).ready(function(){
+            jQuery("#fields").hide();
 
-                jQuery("#fields").hide();
-
-                jQuery("#btn-search").click(function () {
-                    jQuery("#fields").each(function() {
-                        displaying = jQuery(this).css("display");
-                        if(displaying == "block") {
-                            jQuery(this).fadeOut('slow',function() {
-                                jQuery(this).css("display","none");
-                            });
-                        } else {
-                            jQuery(this).fadeIn('slow',function() {
-                                jQuery(this).css("display","block");
-                            });
-                        }
-                    });
+            jQuery("#btn-search").click(function () {
+                jQuery("#fields").each(function() {
+                    displaying = jQuery(this).css("display");
+                    if(displaying == "block") {
+                        jQuery(this).fadeOut('slow',function() {
+                            jQuery(this).css("display","none");
+                        });
+                    } else {
+                        jQuery(this).fadeIn('slow',function() {
+                            jQuery(this).css("display","block");
+                        });
+                    }
                 });
+            });
 
             jQuery('.btn-delete').click(function(e){
 
