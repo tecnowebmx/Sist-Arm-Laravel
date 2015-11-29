@@ -15,6 +15,8 @@
                         <i class="icon-plus-sign icon-white" role="button"></i> Crear Vendedor</a>
                     <a id="btn-search" class="btn btn-rounded" href="#!" role="button">
                         <i class="iconsweets-magnifying" role="button"></i>Buscar...</a>
+                    <a class="btn btn-info btn-rounded" href="{{ url("sellers/exportar-excel?name=$name&last_name=$last_name&key=$key") }}" role="button">
+                        <i class="icon-download icon-white" role="button"></i> Exportar a Excel</a>
                 </p>
                 @include('seller.partials.search')
 
