@@ -59,5 +59,6 @@ Route::get('prospects/exportar-excel/{name?}/{contact?}', 'ProspectController@ex
 
 
 Route::resource('sellers', 'SellerController');
+Route::get('sellers/exportar-excel/{name?}/{last_name?/{key?}', 'SellerController@exportExcel');
 
 Route::resource('machines', 'MachineController');
