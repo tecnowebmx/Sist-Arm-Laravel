@@ -57,8 +57,8 @@ Route::resource('prospects', 'ProspectController');
 Route::get('prospects/convertir-prospecto/{id}', 'ProspectController@convertProspect');
 Route::get('prospects/exportar-excel/{name?}/{contact?}', 'ProspectController@exportExcel');
 
-
+Route::pattern('sellers', '[0-9]+');
 Route::resource('sellers', 'SellerController');
-Route::get('sellers/exportar-excel/{name?}/{last_name?/{key?}', 'SellerController@exportExcel');
+Route::get('sellers/exportar-excel/{name?}/{last_name?}/{key?}', 'SellerController@exportExcel');
 
 Route::resource('machines', 'MachineController');
