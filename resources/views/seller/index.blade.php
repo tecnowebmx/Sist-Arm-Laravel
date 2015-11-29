@@ -16,7 +16,7 @@
                     <a id="btn-search" class="btn btn-rounded" href="#!" role="button">
                         <i class="iconsweets-magnifying" role="button"></i>Buscar...</a>
                 </p>
-                @include('prospect.partials.search')
+                @include('seller.partials.search')
 
                 @if(Session::has('message'))
                     <p class="alert alert-success">{{ Session::get('message') }}</p>
