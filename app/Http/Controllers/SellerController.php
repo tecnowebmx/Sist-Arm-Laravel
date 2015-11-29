@@ -28,9 +28,12 @@ class SellerController extends Controller
      */
     public function index(Request $request)
     {
-        //$sellers = Seller::paginate();
-        $sellers = Seller::filterAndPaginate($request->get('name'), $request->get('last_name'), $request->get('key'));
-        return view('seller.index', compact('sellers'));
+        $name = $request->get('name');
+        $last_name = $request->get('last_name');
+        $key =  $request->get('key');
+
+        $sellers = Seller::filterAndPaginate($name, $last_name, $key);
+        return view('seller.index', compact(['sellers', 'name', 'last_name', 'key'] ));
     }
 
     /**
@@ -133,13 +136,17 @@ class SellerController extends Controller
 
     public function exportExcel(Request $request){
 
-        $sellers = Seller::filterAndPaginate($request->get('name'), $request->get('last_name'), $request->get('key'));
+        $name = $request->get('name');
+        $last_name = $request->get('last_name');
+        $key =  $request->get('key');
+
+        $sellers = Seller::filterAndPaginate($name, $last_name, $key);
 
         Excel::create('Vendedores', function($excel) use($sellers) {
 
             $excel->sheet('Vendedores', function($sheet) use($sellers) {
 
-                $sheet->loadView('seller.partials.export', ['prospects' => $sellers]);
+                $sheet->loadView('seller.partials.export', ['sellers' => $sellers]);
 
             });
         })->export('xls');
