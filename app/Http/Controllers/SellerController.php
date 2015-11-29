@@ -10,6 +10,7 @@ use ARM\Http\Requests;
 use ARM\Http\Controllers\Controller;
 use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SellerController extends Controller
 {
@@ -128,5 +129,20 @@ class SellerController extends Controller
         Session::flash('message', $message);
 
         return $redirect->route('sellers.index');
+    }
+
+    public function exportExcel(Request $request){
+
+        $sellers = Seller::filterAndPaginate($request->get('name'), $request->get('last_name'), $request->get('key'));
+
+        Excel::create('Vendedores', function($excel) use($sellers) {
+
+            $excel->sheet('Vendedores', function($sheet) use($sellers) {
+
+                $sheet->loadView('seller.partials.export', ['prospects' => $sellers]);
+
+            });
+        })->export('xls');
+
     }
 }
