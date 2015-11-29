@@ -27,8 +27,8 @@ class SellerController extends Controller
      */
     public function index(Request $request)
     {
-        $sellers = Seller::paginate();
-        //$sellers = Seller::filterAndPaginate($request->get('name'), $request->get());
+        //$sellers = Seller::paginate();
+        $sellers = Seller::filterAndPaginate($request->get('name'), $request->get('last_name'), $request->get('key'));
         return view('seller.index', compact('sellers'));
     }
 
