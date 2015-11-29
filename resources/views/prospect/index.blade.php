@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title')Prospectos
+@section('title')| Prospectos
 @endsection
 
 @section('content')

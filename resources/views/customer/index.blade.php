@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title')Clientes
+@section('title')| Clientes
 @endsection
 
 @section('content')
