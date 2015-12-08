@@ -23,12 +23,25 @@
             <td>{{ $machine->series }}</td>
             <td>{{ $machine->year }}</td>
             <td>{{ $machine->horometro }}</td>
-            <td>{{ $machine->motor }}
+            @if($machine->motor == 1)
+                <td>Electrico</td>
+            @elseif($machine->motor == 2)
+                <td>Diesel</td>
+            @elseif($machine->motor == 3)
+                <td>Gas L.P.</td>
+            @endif
             <td>${{ number_format($machine->daily_price, 2) }}</td>
             <td>${{ number_format($machine->weekly_price, 2) }}</td>
             <td>${{ number_format($machine->monthly_price, 2) }}</td>
-            <td>{{ $machine->availability }}</td>
-
+            @if($machine->availability == 1)
+                <td>Disponible</td>
+            @elseif($machine->availability == 2)
+                <td>Rentada</td>
+            @elseif($machine->availability == 3)
+                <td>En Mantenimiento</td>
+            @elseif($machine->availability == 4)
+                <td>Vendida</td>
+            @endif
             <td>
                 <a href=" {{ route('machines.edit', $machine) }}">Editar</a>
                 <a class="btn-delete" href="#!">Eliminar</a>
