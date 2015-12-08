@@ -25,7 +25,10 @@
         ],
         "psr-4": {
             "ARM\\": "app/"
-        }
+        },
+        "files": [
+            "app/constants.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
