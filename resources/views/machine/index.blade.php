@@ -7,9 +7,20 @@
     <div class="maincontent">
         <div class="contentinner content-dashboard">
             <div class="row-fluid">
-                <p><a class="btn btn-primary" href="{{ route('machines.create') }}" role="button">
+                <p>
+                    <a class="btn btn-primary" href="{{ route('machines.create') }}" role="button">
                         <i class="icon-plus-sign icon-white" role="button"></i> Crear Maquinaria</a>
-                <h4 class="widgettitle">Hay {{ $machines->total() }} registros</h4>
+                    <a id="btn-search" class="btn btn-rounded" href="#!" role="button">
+                        <i class="iconsweets-magnifying" role="button"></i>Buscar...</a>
+                </p>
+
+                @include('machine.partials.search')
+
+                @if(Session::has('message'))
+                    <p class="alert alert-success">{{ Session::get('message') }}</p>
+                @endif
+                <p>
+                    <h4 class="widgettitle">Hay {{ $machines->total() }} registros</h4>
                 </p>
                 @include('machine.partials.table')
                 {{ $machines->render() }}
