@@ -76,3 +76,9 @@
         $ {!! Form::text('sale_price', $value = null, ['class' => 'input-small']); !!}
     </span>
 </p>
+<p>
+    {!! Form::label('availability', 'Disponibilidad'); !!}
+    <span class="field">
+        {!! Form::select('availability', config('options.disponibilidad'), null, ['class' => 'uniformselect', 'placeholder' => 'Seleccione']); !!}
+    </span>
+</p>
