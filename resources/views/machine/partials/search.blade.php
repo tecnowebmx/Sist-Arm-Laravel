@@ -43,6 +43,12 @@
             </span>
     </p>
     <p>
+        {!! Form::label('availability', 'Disponibilidad'); !!}
+             <span class="field">
+                {!! Form::select('availability', config('options.disponibilidad'), null, ['class' => 'uniformselect', 'placeholder' => 'Seleccione']); !!}
+            </span>
+    </p>
+    <p>
         {!! Form::submit('Buscar', ['class' => 'btn btn-default']) !!}
     </p>
     {!! Form::close() !!}
