@@ -37,6 +37,23 @@
 @section('scripts')
     <script>
         jQuery(document).ready(function(){
+            jQuery("#fields").hide();
+
+            jQuery("#btn-search").click(function () {
+                jQuery("#fields").each(function() {
+                    displaying = jQuery(this).css("display");
+                    if(displaying == "block") {
+                        jQuery(this).fadeOut('slow',function() {
+                            jQuery(this).css("display","none");
+                        });
+                    } else {
+                        jQuery(this).fadeIn('slow',function() {
+                            jQuery(this).css("display","block");
+                        });
+                    }
+                });
+            });
+
             jQuery('.btn-delete').click(function(e){
 
                 e.preventDefault();
