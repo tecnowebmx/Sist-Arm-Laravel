@@ -37,12 +37,6 @@
             </span>
     </p>
     <p>
-        {!! Form::label('series', 'Serie'); !!}
-            <span class="field">
-                {!! Form::text('series', $value = null, ['class' => 'form-control', 'placeholder' => 'Serie del Equipo']) !!}
-            </span>
-    </p>
-    <p>
         {!! Form::label('availability', 'Disponibilidad'); !!}
              <span class="field">
                 {!! Form::select('availability', config('options.disponibilidad'), null, ['class' => 'uniformselect', 'placeholder' => 'Seleccione']); !!}
