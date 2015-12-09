@@ -64,6 +64,7 @@ class ProspectController extends Controller
         $prospect = new Prospect($request->all());
         $prospect->fecha_alta = date('Y-m-d');
         $prospect->type = 0;
+        $prospect->status = 1;
         $prospect->save();
 
         return $redirect->route('prospects.index');
