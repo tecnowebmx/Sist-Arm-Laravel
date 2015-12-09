@@ -24,11 +24,19 @@ class MachineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $machines = Machine::paginate();
+        $id = $request->get('id');
+        $name = $request->get('name');
+        $marca = $request->get('brand');
+        $modelo = $request->get('model');
+        $serie = $request->get('series');
+        $año = $request->get('year');
+        $disponibilidad = $request->get('availability');
 
-        return view('machine.index', compact('machines'));
+        $machines = Machine::filterAndPaginate($id, $name, $marca, $modelo, $serie, $año, $disponibilidad);
+
+        return view('machine.index', compact(['machines', 'name', 'marca', 'modelo', 'serie', 'año', 'disponibilidad']));
     }
 
     /**
@@ -51,6 +59,7 @@ class MachineController extends Controller
     {
         $machine = new Machine($request->all());
         $machine->availability = 1;
+        $machine->status = 1;
         $machine->save();
 
         return $redirect->route('machines.index');
