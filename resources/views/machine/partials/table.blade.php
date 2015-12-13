@@ -42,7 +42,7 @@
             @elseif($machine->availability == 4)
                 <td>Vendida</td>
             @endif
-            <td>
+            <td style="padding-left: 10px; font-weight: bold;">
                 <a href=" {{ route('machines.edit', $machine) }}">Editar</a>
                 <a class="btn-delete" href="#!">Eliminar</a>
             </td>
