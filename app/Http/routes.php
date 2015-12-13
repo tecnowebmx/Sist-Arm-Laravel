@@ -61,4 +61,6 @@ Route::pattern('sellers', '[0-9]+');
 Route::resource('sellers', 'SellerController');
 Route::get('sellers/exportar-excel/{name?}/{last_name?}/{key?}', 'SellerController@exportExcel');
 
+Route::pattern('sellers', '[0-9]+');
 Route::resource('machines', 'MachineController');
+Route::get('machines/exportar-excel/{name?}', 'MachineController@exportExcel');
