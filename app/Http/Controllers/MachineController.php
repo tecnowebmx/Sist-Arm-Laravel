@@ -8,6 +8,7 @@ use ARM\Http\Requests;
 use ARM\Http\Controllers\Controller;
 use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MachineController extends Controller
 {
@@ -36,7 +37,7 @@ class MachineController extends Controller
 
         $machines = Machine::filterAndPaginate($id, $name, $marca, $modelo, $serie, $año, $disponibilidad);
 
-        return view('machine.index', compact(['machines', 'name', 'marca', 'modelo', 'serie', 'año', 'disponibilidad']));
+        return view('machine.index', compact(['machines', 'id', 'name', 'marca', 'modelo', 'serie', 'año', 'disponibilidad']));
     }
 
     /**
@@ -127,6 +128,29 @@ class MachineController extends Controller
         Session::flash('message', $message);
 
         return $redirect->route('sellers.index');
+
+    }
+
+    public function exportExcel(Request $request){
+
+        $id = $request->get('id');
+        $name = $request->get('name');
+        $marca = $request->get('brand');
+        $modelo = $request->get('model');
+        $serie = $request->get('series');
+        $año = $request->get('year');
+        $disponibilidad = $request->get('availability');
+
+        $machines = Machine::filterAndPaginate($id, $name, $marca, $modelo, $serie, $año, $disponibilidad);
+
+        Excel::create('Maquinaría', function($excel) use($machines) {
+
+            $excel->sheet('Maquinaría', function($sheet) use($machines) {
+
+                $sheet->loadView('machines.partials.export', ['machines' => $machines]);
+
+            });
+        })->export('xls');
 
     }
 }
