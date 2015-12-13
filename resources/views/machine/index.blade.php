@@ -12,6 +12,8 @@
                         <i class="icon-plus-sign icon-white" role="button"></i> Crear Maquinaria</a>
                     <a id="btn-search" class="btn btn-rounded" href="#!" role="button">
                         <i class="iconsweets-magnifying" role="button"></i>Buscar...</a>
+                    <a class="btn btn-info btn-rounded" href="{{ url("machines/exportar-excel?id=$id&name=$name&brand=$marca&model=$modelo&series=$serie&year=$año&availability=$disponibilidad") }}" role="button">
+                        <i class="icon-download icon-white" role="button"></i> Exportar a Excel</a>
                 </p>
 
                 @include('machine.partials.search')
